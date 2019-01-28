@@ -1,1 +1,14 @@
 language: java
+jdk:
+  - oraclejdk8
+  - openjdk8
+  - oraclejdk11
+  - openjdk11
+jobs:
+  include:
+    - stage: test
+    - stage: publish
+      if: branch = master && type != pull_request
+      env:
+        - FOO="It is Publishing!"
+      script: echo $FOO
