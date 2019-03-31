@@ -1,14 +1,12 @@
 language: java
-jdk:
-  - oraclejdk8
-  - openjdk8
-  - oraclejdk11
-  - openjdk11
 jobs:
   include:
-    - stage: test
-    - stage: publish
-      if: branch = master && type != pull_request
-      env:
-        - FOO="It is Publishing!"
-      script: echo $FOO
+  - stage: test
+  - stage: publish
+    if: branch = improve-build && type != pull_request
+    env:
+      - BAR="Hello User!"
+      - secure: aaNH9WlmSc0wNfg6vIC9gmlAWOcYNEe6yuZVYdrvPOKTxooeNUkyDFdhzee3lbQsYUTqnk3WejeEwenBelcO7SGXFhEHan+Q2oYNPd10Pts55ByEswLLxhpguYfCEKG8y+63zOONJXR1FVDEJMMPX2UcaOe3TmQGPkFA+FcMwnbdwrKxNEa1Lk2jedHSuML2sCPgbvmBkFssPZBKqGgkwGqsDPMkqwmxpJNMvKDzO5Yy3lV47E0AB5SqpEJHZks4C7RFJkFF2YOSf3z/E+oMvCY4V98xXKWhHlz1iqp731mCz+OmQW1dYPPavQrrLPu2UQDyjd6lxHJG5UvZ9x6KBIH5ebfag4R8J4FpiYEvMu/fWb9+A6N2II28ZFrjr6JHT/98yATRpKwZNDMPtOaFxthxtKXfB863vn5Vpkj4c/SKLQivzukiu7N/B/4QXz/pseOt3+MxyrtS5mth8Jwltgb0Qd22lOpfKTsOY+411Qljl0LcGqeOZ1nn1B88Dx4YqpBulrPSpGe2QCSVqk0h+ihvE5/3G1i/t4ZJgTHNMkriFVBn4vRet66t3ZQEytsAEN21Xbvn2lU9L1JsOrH/EM3d9CnP7kgdse6F/QDzVi/bYoZgoLi9D2z0CMIl+SKgc11J5dTDF7mcc+wbT0ry1hOlAMHom8JutXVfZwGoVjI=
+    script:
+      - echo $BAR
+      - echo ${FOO}
